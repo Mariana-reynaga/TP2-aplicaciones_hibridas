@@ -1,11 +1,34 @@
 import TarjetaGato from '../components/TarjetaGato'
-
+import { useState, useEffect} from 'react';
 function Home(){
-    let tempGatos = [
-        {id:1 , title: 'Gato 1', img:'https://fifeweb.org/app/uploads/2023/12/EXO-69___0009.jpg', alt:'Gato exotico 1'},
-        {id:2 , title: 'Gato 2', img:'https://fifeweb.org/app/uploads/2023/12/EXO-69___0009.jpg', alt:'Gato exotico 2'},
-        {id:3 , title: 'Gato 3', img:'https://fifeweb.org/app/uploads/2023/12/EXO-69___0009.jpg', alt:'Gato exotico 3'},
-      ]
+    const [trandomRec, setTrandomRec] = useState([]);
+    const [trandomExp, setTrandomExp] = useState([]);
+
+    useEffect( ()=>{
+        const getRandomR = async()=>{
+            const endpoint = import.meta.env.VITE_TRES_RANDOM_RECOG;
+
+            const res = await fetch(endpoint);
+
+            const trandomRec = await res.json();
+
+            setTrandomRec(trandomRec.data);
+        }
+
+        const getRandomE = async()=>{
+            const endpoint = import.meta.env.VITE_TRES_RANDOM_EXPER;
+
+            const res = await fetch(endpoint);
+
+            const trandomExp = await res.json();
+
+            setTrandomExp(trandomExp.data);
+        }
+
+        getRandomR();
+        getRandomE();
+
+    }, [])
 
     return(
         <>
@@ -25,20 +48,43 @@ function Home(){
 
             </div>
 
-            {/* 3 gatos random */}
+            {/* 3 gatos reconocidos random */}
             <div className="flex flex-wrap justify-center mb-10">
-                <div className="w-4/5 flex justify-evenly flex-wrap">
-                    {   
-                        tempGatos.map( gato=>(
-                            <TarjetaGato 
-                                title={gato.title} 
-                                img={gato.img} 
-                                alt={gato.alt} 
-                                key={gato.id}
-                                id={gato.id}
-                            />
-                        ))
-                    }
+                <div className="w-4/5 flex flex-col">
+                    <h2>Reconocidas</h2>
+                    <div className="flex flex-row justify-evenly flex-wrap">
+                        {   
+                            trandomRec.map( gato=>(
+                                <TarjetaGato 
+                                    title={gato.name} 
+                                    img="https://fifeweb.org/app/uploads/2023/12/PER.jpg"
+                                    alt={gato.alt} 
+                                    key={gato.id}
+                                    id={gato._id}
+                                />
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+            
+            {/* 3 gatos experimentales random */}
+            <div className="flex flex-wrap justify-center mb-10">
+                <div className="w-4/5 flex flex-col">
+                    <h2>Experimentales</h2>
+                    <div className="flex flex-row justify-evenly flex-wrap">
+                        {   
+                            trandomExp.map( gato=>(
+                                <TarjetaGato 
+                                    title={gato.name} 
+                                    img="https://fifeweb.org/app/uploads/2023/12/PER.jpg"
+                                    alt={gato.alt} 
+                                    key={gato.id}
+                                    id={gato._id}
+                                />
+                            ))
+                        }
+                    </div>
                 </div>
             </div>
         </>
