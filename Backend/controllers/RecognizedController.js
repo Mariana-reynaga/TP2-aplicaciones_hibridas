@@ -104,6 +104,32 @@ const getBreedXcolor = async ( req, res ) => {
     }
 }
 
+// Traer una raza al azar
+const randomBreed = async (req,res) => {
+    try{
+        let random = await Recognized.aggregate([{$sample: {size: 1}}]);
+
+        res.status(200).json({msg: "Raza random elegida: ",data: random});
+
+    }catch(error){
+        log(chalk.bgRed('[RecognizedController.js]: randomBreed: ' ,error));
+        res.status(500).json({msg: 'OOPS, tenemos un error', data: {}});
+    }
+}
+
+// Traer 3 razas al azar
+const threeRandomBreed = async (req, res) => {
+    try{
+        let randoms = await Recognized.aggregate([{$sample: {size: 3}}]);
+
+        res.status(200).json({msg: "Razas random elegidas: ",data: randoms});
+
+    }catch(error){
+        log(chalk.bgRed('[RecognizedController.js]: threeRandomBreed: ' ,error));
+        res.status(500).json({msg: 'OOPS, tenemos un error', data: {}});
+    }
+}
+
 // Traer una raza por ID
 const getBreedXid = async ( req, res ) => {
     const {id} = req.params; 
@@ -235,4 +261,15 @@ const deleteRecognizedBreed = async ( req, res ) =>{
     }
 };
 
-module.exports = { getRecognizedBreeds, getBreedXid, getBreedXname, getBreedXlength, getBreedXcolor, createRecognized, updateRecognizedBreed, deleteRecognizedBreed };
+module.exports = { 
+        getRecognizedBreeds, 
+        getBreedXid, 
+        getBreedXname, 
+        getBreedXlength, 
+        getBreedXcolor, 
+        createRecognized, 
+        updateRecognizedBreed, 
+        deleteRecognizedBreed,
+        randomBreed,
+        threeRandomBreed 
+    };

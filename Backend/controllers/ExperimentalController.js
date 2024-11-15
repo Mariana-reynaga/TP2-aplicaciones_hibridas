@@ -123,6 +123,32 @@ const getBreedXid = async ( req, res ) => {
     }
 };
 
+// Traer una raza al azar
+const randomBreed = async (req,res) => {
+    try{
+        let random = await Experimental.aggregate([{$sample: {size: 1}}]);
+
+        res.status(200).json({msg: "Raza random elegida: ",data: random});
+
+    }catch(error){
+        log(chalk.bgRed('[ExperimentalController.js]: randomBreed: ' ,error));
+        res.status(500).json({msg: 'OOPS, tenemos un error', data: {}});
+    }
+}
+
+// Traer 3 razas al azar
+const threeRandomBreed = async (req, res) => {
+    try{
+        let randoms = await Experimental.aggregate([{$sample: {size: 3}}]);
+
+        res.status(200).json({msg: "Razas random elegidas: ",data: randoms});
+
+    }catch(error){
+        log(chalk.bgRed('[ExperimentalController.js]: threeRandomBreed: ' ,error));
+        res.status(500).json({msg: 'OOPS, tenemos un error', data: {}});
+    }
+}
+
 // Añadir una nueva raza experimental
 const createExperimental = async ( req, res ) =>{
     const { name, origin, coat_length, possible_color } = req.body;
@@ -250,4 +276,15 @@ const deleteExperimentalBreed = async ( req, res ) =>{
     }
 };
 
-module.exports = { getExperimentalBreeds, getBreedXname, getBreedXlength, getBreedXcolor, getBreedXid, createExperimental, updateExperimentalBreed, deleteExperimentalBreed };
+module.exports = { 
+    getExperimentalBreeds, 
+    getBreedXid, 
+    getBreedXname, 
+    getBreedXlength, 
+    getBreedXcolor, 
+    createExperimental, 
+    updateExperimentalBreed, 
+    deleteExperimentalBreed,
+    randomBreed,
+    threeRandomBreed 
+};

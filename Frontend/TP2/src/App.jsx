@@ -4,8 +4,10 @@ import './App.css'
 import Home from './views/Home'
 import Recognized from './views/Breeds/Recognized'
 import Expermental from './views/Breeds/Experimental'
+import Details from './views/Breeds/Details'
 import Login from './views/auth/Login'
 import Register from './views/auth/Register'
+import NotFound from './views/NotFound'
 
 import { Routes, Route, NavLink } from 'react-router-dom'
 
@@ -30,8 +32,10 @@ function App() {
         <Route path="/" element={ <Home /> } />
         <Route path="/reconocidos" element={ <Recognized /> } />
         <Route path="/experimental" element={ <Expermental /> } />
+        <Route path="/details/:id" element={ <Details /> } />
         <Route path="/login" element={ <Login /> } />
         <Route path="/registro" element={ <Register /> } />
+        <Route path='*' element={ <NotFound /> } />
       </Routes>
 
       {/* footer */}

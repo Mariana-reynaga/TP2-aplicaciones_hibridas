@@ -14,7 +14,7 @@ function Home(){
 
                 <div className="bg-primary w-4/5 p-6 flex items-center rounded-md">
                     <div className="w-2/3 h-full flex flex-col justify-evenly">
-                        <p>Michi REST permite la búsqueda, creación, actualización y eliminación de razas de gatos experimentals por la Fédération Internationale Féline (FIF) además de razas experimentales.</p>
+                        <p>Michi REST permite la búsqueda, creación, actualización y eliminación de razas de gatos reconocidos por la Fédération Internationale Féline (FIF) además de razas experimentales.</p>
                         <p>Tambien, sin cargo extra, foto del gato de mi amigo: <span>Argo</span></p>
                     </div>
 
@@ -30,7 +30,13 @@ function Home(){
                 <div className="w-4/5 flex justify-evenly flex-wrap">
                     {   
                         tempGatos.map( gato=>(
-                            <TarjetaGato title={gato.title} img={gato.img} alt={gato.alt} key={gato.id} />
+                            <TarjetaGato 
+                                title={gato.title} 
+                                img={gato.img} 
+                                alt={gato.alt} 
+                                key={gato.id}
+                                id={gato.id}
+                            />
                         ))
                     }
                 </div>
