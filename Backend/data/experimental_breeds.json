@@ -5,6 +5,7 @@
         "coat_length": "short",
         "possible_color": "calico",
         "_id": "670af14dddcb0bfe92a6b386",
+        "img_url": "https://upload.wikimedia.org/wikipedia/commons/9/96/Aegean_Island_Cat.jpg",
         "created_at": "2024-10-12T21:59:41.380Z"
     },
     {
@@ -13,6 +14,7 @@
         "coat_length": "short",
         "possible_color": "tabby",
         "_id": "670af1622ca21f7a7f8eebda",
+        "img_url": "https://www.catster.com/wp-content/uploads/2023/11/cyprus-cat-stretching_FrimuFilms-Shutterstock.jpg",
         "created_at": "2024-10-12T22:00:02.988Z"
     },
     {
@@ -21,6 +23,7 @@
         "coat_length": "bald",
         "possible_color": "none",
         "_id": "670af1a8ca1c6326e7c019a1",
+        "img_url": "https://i2.wp.com/cat-world.com/wp-content/uploads/2019/04/bambino-cat.jpg",
         "created_at": "2024-10-12T22:01:12.466Z"
     },
     {
@@ -29,6 +32,7 @@
         "coat_length": "short",
         "possible_color": "ginger",
         "_id": "670af1db2ca77c7d8627553c",
+        "img_url": "https://cdn-fastly.petguide.com/media/2022/02/16/8215970/foldex.jpg?size=720x845&nocrop=1",
         "created_at": "2024-10-12T22:02:03.248Z"
     },
     {
@@ -37,6 +41,7 @@
         "coat_length": "short",
         "possible_color": "rosette",
         "_id": "670af21bbc71e604357af40b",
+        "img_url": "https://upload.wikimedia.org/wikipedia/commons/1/15/Highlander-7.jpg",
         "created_at": "2024-10-12T22:03:07.474Z"
     },
     {
@@ -45,6 +50,7 @@
         "coat_length": "long",
         "possible_color": "calico",
         "_id": "670af289b1e1c9eba609a4cc",
+        "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlNeoCMYNc9nv50Z2Nxm9O1QQJQKGp_Y0YJw&s",
         "created_at": "2024-10-12T22:04:57.975Z"
     },
     {
@@ -53,6 +59,7 @@
         "coat_length": "long",
         "possible_color": "brown",
         "_id": "670af2d38026b0247eb64b80",
+        "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMUvf8FYJUjetMTFCVMwP8d64gEfymZ4dW5A&s",
         "created_at": "2024-10-12T22:06:11.447Z"
     }
 ]

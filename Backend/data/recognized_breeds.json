@@ -5,6 +5,7 @@
         "coat_length": "short",
         "possible_color": "rosette",
         "_id": "670aedfad3730112f9ea8f07",
+        "img_url": "https://fifeweb.org/app/uploads/2023/12/BEN-57___2O8A4180.jpg",
         "created_at": "2024-10-12T21:45:30.773Z"
     },
     {
@@ -13,6 +14,7 @@
         "coat_length": "long",
         "possible_color": "blue",
         "_id": "670aee713d17b1c5751852fe",
+        "img_url": "https://fifeweb.org/app/uploads/2023/12/BLH-59___2O8A4948.jpg",
         "created_at": "2024-10-12T21:47:29.502Z"
     },
     {
@@ -21,6 +23,7 @@
         "coat_length": "short",
         "possible_color": "white",
         "_id": "670aeed71bf5a224aaf243c9",
+        "img_url": "https://fifeweb.org/app/uploads/2023/10/63___0015.jpg",
         "created_at": "2024-10-12T21:49:11.476Z"
     },
     {
@@ -29,6 +32,7 @@
         "coat_length": "bald",
         "possible_color": "none",
         "_id": "670aef3dd565492ce9c2c689",
+        "img_url": "https://fifeweb.org/app/uploads/2023/10/66___IMG_8397.jpg",
         "created_at": "2024-10-12T21:50:53.691Z"
     },
     {
@@ -37,6 +41,7 @@
         "coat_length": "long",
         "possible_color": "ginger",
         "_id": "670aef902bf766fba24b5f6e",
+        "img_url": "https://fifeweb.org/app/uploads/2023/12/SOM-95___0009.jpg",
         "created_at": "2024-10-12T21:52:16.856Z"
     },
     {
@@ -45,7 +50,17 @@
         "coat_length": "long",
         "possible_color": "brown",
         "_id": "670af075e37f32cb99e1cf31",
+        "img_url": "https://fifeweb.org/app/uploads/2023/12/OLH.jpg",
         "created_at": "2024-10-12T21:56:05.945Z"
-    }
+    },
+    {
+        "name": "German Rex",
+        "origin": "Germany",
+        "coat_length": "long",
+        "possible_color": "black",
+        "_id": "6737b1eeaefa05ef498b9dc9",
+        "img_url": "https://fifeweb.org/app/uploads/2023/12/GRX.jpg",
+        "created_at": "2024-11-15T20:41:18.612Z"
+      }
 
 ]

@@ -22,6 +22,10 @@ const experimentalSchema = new schema({
         default: 'white',
         required: true
     },
+    img_url:{
+        type: String,
+        default: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
+    },
     created_at:{
         type: Date,
         default: Date.now

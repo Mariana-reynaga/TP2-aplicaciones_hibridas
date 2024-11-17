@@ -24,13 +24,13 @@ router.get('/length/:length', getBreedXlength);
 
 router.get('/color/:color', getBreedXcolor);
 
-router.get('find/:id', getBreedXid);
+router.get('/find/:id', getBreedXid);
 
 router.post('/', createExperimental);
 
-router.put('find/:id', updateExperimentalBreed);
+router.put('/find/:id', updateExperimentalBreed);
 
-router.delete('find/:id', deleteExperimentalBreed);
+router.delete('/find/:id', deleteExperimentalBreed);
 
 router.get('/random', randomBreed);
 

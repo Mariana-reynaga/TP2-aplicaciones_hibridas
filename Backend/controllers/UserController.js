@@ -71,7 +71,6 @@ const getUserXid = async ( req, res ) => {
     }
 };
 
-// Falta poner el hash
 // Crear un usuario
 const createUser = async ( req, res ) =>{
     const { name, email, password } = req.body;

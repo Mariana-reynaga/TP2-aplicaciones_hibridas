@@ -151,7 +151,7 @@ const getBreedXid = async ( req, res ) => {
 
 // Añadir una nueva raza reconocida
 const createRecognized = async ( req, res ) =>{
-    const { name, origin, coat_length, possible_color } = req.body;
+    const { name, origin, coat_length, possible_color, img_url } = req.body;
     
     if ( !name || !origin || !coat_length || !possible_color ) {
         res.status(400).json({msg: 'Faltan datos obligatorios.', data: { name, origin, coat_length, possible_color }});
@@ -176,7 +176,7 @@ const createRecognized = async ( req, res ) =>{
                 return res.status(400).send({ msg: "La raza ya existe." });
             }
 
-            const newBreed = new Recognized( { name, origin, coat_length, possible_color } );
+            const newBreed = new Recognized( { name, origin, coat_length, possible_color, img_url } );
             
             await newBreed.save();
 
@@ -208,9 +208,9 @@ const createRecognized = async ( req, res ) =>{
 // Actualizar una raza
 const updateRecognizedBreed = async ( req, res ) =>{
     const { id } = req.params;
-    const { name, origin, coat_length, possible_color } = req.body;
+    const { name, origin, coat_length, possible_color, img_url } = req.body;
 
-    const newData = { name, origin, coat_length, possible_color };
+    const newData = { name, origin, coat_length, possible_color, img_url };
     
     const possible_lengths = Recognized.schema.path('coat_length').enumValues;
 

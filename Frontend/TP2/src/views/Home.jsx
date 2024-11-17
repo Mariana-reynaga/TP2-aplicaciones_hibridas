@@ -31,7 +31,7 @@ function Home(){
     }, [])
 
     return(
-        <>
+        <div className='mt-36'>
             {/* Banner de inicio */}
             <div className="flex justify-center mb-10">
 
@@ -51,15 +51,15 @@ function Home(){
             {/* 3 gatos reconocidos random */}
             <div className="flex flex-wrap justify-center mb-10">
                 <div className="w-4/5 flex flex-col">
-                    <h2>Reconocidas</h2>
+                    <h2 className='text-xl mb-6 font-bold' >Reconocidas</h2>
                     <div className="flex flex-row justify-evenly flex-wrap">
                         {   
                             trandomRec.map( gato=>(
                                 <TarjetaGato 
+                                    key={gato._id}
                                     title={gato.name} 
-                                    img="https://fifeweb.org/app/uploads/2023/12/PER.jpg"
+                                    img={gato.img_url}
                                     alt={gato.alt} 
-                                    key={gato.id}
                                     id={gato._id}
                                 />
                             ))
@@ -71,15 +71,15 @@ function Home(){
             {/* 3 gatos experimentales random */}
             <div className="flex flex-wrap justify-center mb-10">
                 <div className="w-4/5 flex flex-col">
-                    <h2>Experimentales</h2>
+                    <h2 className='text-xl mb-6 font-bold'>Experimentales</h2>
                     <div className="flex flex-row justify-evenly flex-wrap">
                         {   
                             trandomExp.map( gato=>(
                                 <TarjetaGato 
+                                    key={gato._id}
                                     title={gato.name} 
-                                    img="https://fifeweb.org/app/uploads/2023/12/PER.jpg"
+                                    img={gato.img_url}
                                     alt={gato.alt} 
-                                    key={gato.id}
                                     id={gato._id}
                                 />
                             ))
@@ -87,7 +87,12 @@ function Home(){
                     </div>
                 </div>
             </div>
-        </>
+
+            {/* footer */}
+            <div className="bg-black w-full min-h-10 p-4">
+                <p className='text-white'>Mariana reynaga - DWM4AP - Aplicaciones Hibridas</p>
+            </div>
+        </div>
     )
 }
 
