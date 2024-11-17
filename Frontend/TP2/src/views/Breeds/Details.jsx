@@ -1,6 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
+import EliminarRecog from "../../components/EliminarRecog";
 import Button from "../../components/Button";
+
+import { useNavigate } from "react-router-dom";
 
 function Details(){
     const { id } = useParams();
@@ -16,6 +19,7 @@ function Details(){
             const detalle = await res.json();
             
             setDetalle(detalle.data);
+            console.log(detalle.data._id);
         }
         getGato();
     }, []);
@@ -39,7 +43,7 @@ function Details(){
                         </div>
                         
                         <div className="flex mt-10">
-                            <Button link="" title="Eliminar" />
+                            <EliminarRecog id={detalle._id} />
                             <Button link="" title="Editar" />
                         </div>
 
