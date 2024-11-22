@@ -32,7 +32,7 @@ Michi REST fue creado con javascript, express y mongoDB.
 -   Traer un usuario por su ID
 
 ```
-    http://127.0.0.1:3000/api/users/:id
+    http://127.0.0.1:3000/api/users/find/:id
 ```
 
 <br>
@@ -58,7 +58,7 @@ Michi REST fue creado con javascript, express y mongoDB.
 -   Actualizar un usuario
 
 ```
-    http://127.0.0.1:3000/api/users/:id
+    http://127.0.0.1:3000/api/users/find/:id
 ```
 
 <br>
@@ -67,7 +67,7 @@ Michi REST fue creado con javascript, express y mongoDB.
 -   Eliminar un usuario
 
 ```
-    http://127.0.0.1:3000/api/users/:id
+    http://127.0.0.1:3000/api/users/find/:id
 ```
 
 </details>
@@ -95,7 +95,7 @@ Michi REST fue creado con javascript, express y mongoDB.
 
 -   Traer una raza por su ID
 ```
-    http://127.0.0.1:3000/api/(recognized/experimental)/:id
+    http://127.0.0.1:3000/api/(recognized/experimental)/find/:id
 ```
 
 <br>
@@ -123,7 +123,7 @@ Michi REST fue creado con javascript, express y mongoDB.
 -   Actualizar una raza
 
 ```
-    http://127.0.0.1:3000/api/(recognized/experimental)/:id
+    http://127.0.0.1:3000/api/(recognized/experimental)/find/:id
 ```
 <br>
 
@@ -131,7 +131,7 @@ Michi REST fue creado con javascript, express y mongoDB.
 -   Eliminar una raza
 
 ```
-    http://127.0.0.1:3000/api/(recognized/experimental)/:id
+    http://127.0.0.1:3000/api/(recognized/experimental)/find/:id
 ```
 </details>
 
