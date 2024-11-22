@@ -38,8 +38,9 @@ function Login(){
             }
 
             const data = await res.json();
-            console.log("bienvenido ",data);
+            
             sessionStorage.setItem("token", data.data.token);
+            
             setUser({email:'', password:''});
 
             navigate(`/`, { replace: true });

@@ -8,7 +8,7 @@ const User = require('../Models/UsersModel');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const secretKey = process.env.SECRETKEY; 
-const salt = 10;
+const salt = 16;
 
 // Traer Todos Los Usuarios
 const bringUsers = async ( req, res ) => {
@@ -95,8 +95,14 @@ const createUser = async ( req, res ) =>{
             
             await newUser.save();
 
-            res.status(200).json( { msg: "Usuario Creado", data: newUser } );
+            const data = {
+                email: newUser.name
+            }
 
+            const token = jwt.sign(data, secretKey, {expiresIn: '15m'});
+
+            res.status(200).json( { msg: "Usuario Creado", data: {token, newUser} } );
+            
 
         } else {
             res.status(400).json({msg: 'Datos incorrectos. La contraseña debe ser al menos 8 caracteres y el email debe contener un @.', data: { email, password }});
@@ -177,10 +183,8 @@ const login = async (req, res)=>{
                     username: user.name
                 };
     
-                const token = jwt.sign(data, secretKey, {expiresIn: '30s'});
+                const token = jwt.sign(data, secretKey, {expiresIn: '15m'});
 
-
-                
                 res.status(200).json({msg: `Bienvenido ${user.name}`, data:{ data, token } });
                 
             }else{

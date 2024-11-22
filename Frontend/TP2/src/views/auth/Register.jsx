@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Register(){
+    const navigate = useNavigate();
     const [newUser, setNewUser] = useState({name: '', email:'', password:''});
     
     const handleInput = (e) =>{
@@ -26,18 +28,29 @@ function Register(){
 
             const res = await fetch(endpoint, config);
 
+            console.log(res);
+
             if ( !res.ok ) {
                 alert('Uno de los datos es incorrecto');
                 console.log("hubo un error", res);
 
             }else{
                 const data = await res.json();
+    
+                sessionStorage.setItem("token", data.data.token);
+                
+                console.log("usuario creado ", data);
+
                 setNewUser({name:'', email:'', password:''});
+
+                navigate(`/`, { replace: true });
+                
+                location.reload();
             }
 
-
+            
         } catch (error) {
-            alert('error del servidor', error);
+            console.log(error);
         }
         
     }
