@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 router.use(express.json());
 
+const validateToken = require('../middleware/auth');
+
 const { 
     getExperimentalBreeds, 
     getBreedXid, 
@@ -26,11 +28,11 @@ router.get('/color/:color', getBreedXcolor);
 
 router.get('/find/:id', getBreedXid);
 
-router.post('/', createExperimental);
+router.post('/',validateToken ,createExperimental);
 
-router.put('/find/:id', updateExperimentalBreed);
+router.put('/find/:id',validateToken , updateExperimentalBreed);
 
-router.delete('/find/:id', deleteExperimentalBreed);
+router.delete('/find/:id',validateToken , deleteExperimentalBreed);
 
 router.get('/random', randomBreed);
 

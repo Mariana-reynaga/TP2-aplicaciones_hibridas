@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 router.use(express.json());
 
+const validateToken = require('../middleware/auth');
+
 const { 
         getRecognizedBreeds, 
         getBreedXid, 
@@ -26,11 +28,11 @@ router.get('/color/:color', getBreedXcolor);
 
 router.get('/find/:id', getBreedXid);
 
-router.post('/', createRecognized);
+router.post('/',validateToken ,createRecognized);
 
-router.put('/find/:id', updateRecognizedBreed);
+router.put('/find/:id',validateToken ,updateRecognizedBreed);
 
-router.delete('/find/:id', deleteRecognizedBreed);
+router.delete('/find/:id',validateToken ,deleteRecognizedBreed);
 
 router.get('/random', randomBreed);
 

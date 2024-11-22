@@ -1,6 +1,5 @@
 import React from 'react';
 import TarjetaGato from '../../components/TarjetaGato'
-import Button from '../../components/Button';
 
 import { useState, useEffect } from 'react';
 
@@ -27,10 +26,6 @@ function Experimental(){
                     <div className="flex flex-col ">
                         <h1 className='text-black text-2xl mb-3'>Razas experimentales</h1>
                         <p>Razas no reconocidas por la FIF</p>
-                    </div>
-
-                    <div className="w-1/3 mt-3">
-                       <Button title="Crear" link="/experimental/create"/>
                     </div>
                 </div>
 

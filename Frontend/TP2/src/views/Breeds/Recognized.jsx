@@ -1,12 +1,11 @@
 import React from 'react';
 import TarjetaGato from '../../components/TarjetaGato'
 import Button from '../../components/Button';
-// import ButtonRandom from '../../components/ButtonRandom';
+
 import { useState, useEffect } from 'react';
 
 function Recognized(){
     const [gatos, setGatos] = useState([]);
-    // const [randomDet, setRandomDet] = useState();
 
     useEffect( ()=>{
         const getGatos = async()=>{
@@ -18,21 +17,8 @@ function Recognized(){
             
             setGatos(gatos.data);
         }
-    
-        // const bringRandom = async() =>{
-        //     const endpoint = import.meta.env.VITE_RANDOM_RECOG;
-    
-        //     const res = await fetch(endpoint);
-    
-        //     const randomDet = await res.json();
-    
-        //     setRandomDet(randomDet.data);
-
-        //     console.log(randomDet.data)
-        // } 
 
         getGatos();
-        // bringRandom();
     }, [])
 
     return(
@@ -44,14 +30,6 @@ function Recognized(){
                         <p>Razas reconocidas por la FIF</p>
                     </div>
 
-                    <div className="w-1/3 mt-3">
-                        {/* {
-                            randomDet.map( random=>{
-                                <ButtonRandom id={random._id} title="Random" />
-                            })
-                        } */}
-                       <Button title="Crear" link="/reconocidos/create"/>
-                    </div>
                 </div>
 
             </div>

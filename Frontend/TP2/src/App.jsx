@@ -3,17 +3,27 @@ import './App.css'
 // Vistas
 import Home from './views/Home'
 import Recognized from './views/Breeds/Recognized'
-import CreateRecog from './views/Breeds/CreateRecog'
 import Expermental from './views/Breeds/Experimental'
-import CreateExper from './views/Breeds/createExper'
 import Details from './views/Breeds/Details'
 import Login from './views/auth/Login'
 import Register from './views/auth/Register'
 import NotFound from './views/NotFound'
 
-import { Routes, Route, NavLink } from 'react-router-dom'
+import { Routes, Route, NavLink, useNavigate } from 'react-router-dom';
 
 function App() {
+  const navigate = useNavigate();
+
+  let token = sessionStorage.getItem("token");
+
+  const closeSession = async () =>{
+    await sessionStorage.removeItem("token");
+    
+    navigate(`/`, { replace: true });
+
+    location.reload();
+  }
+
   return (
     <>
       {/* Navbar */}
@@ -24,8 +34,16 @@ function App() {
           <ul className='flex justify-evenly items-end w-1/3'>
             <li><NavLink to="/reconocidos">Reconocidos</NavLink></li>
             <li><NavLink to="/experimental">Experimentales</NavLink></li>
-            <li><NavLink to="/login">Iniciar sesión</NavLink></li>
-            <li><NavLink to="/registro">Registrate</NavLink></li>
+            {
+              token == null ? (
+                <>
+                  <li><NavLink to="/login">Iniciar sesión</NavLink></li>
+                  <li><NavLink to="/registro">Registrate</NavLink></li>
+                </>
+              ) : (
+                <li onClick={closeSession}>Cerrar sesión</li>
+              )
+            }
           </ul>
         </div>
 
@@ -34,9 +52,7 @@ function App() {
         <Routes>
           <Route path="/" element={ <Home /> } />
           <Route path="/reconocidos" element={ <Recognized /> } />
-          <Route path="/reconocidos/create" element={ <CreateRecog /> } />
           <Route path="/experimental" element={ <Expermental /> } />
-          <Route path="/experimental/create" element={ <CreateExper /> } />
           <Route path="/details/:id" element={ <Details /> } />
           <Route path="/login" element={ <Login /> } />
           <Route path="/registro" element={ <Register /> } />

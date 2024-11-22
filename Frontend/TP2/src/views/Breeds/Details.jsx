@@ -41,12 +41,7 @@ function Details(){
                             }  
                                 
                         </div>
-                        
-                        <div className="flex mt-10">
-                            <EliminarRecog id={detalle._id} />
-                            <Button link="" title="Editar" />
-                        </div>
-
+                    
                     </div>
 
                     <div className="w-1/2 h-98">

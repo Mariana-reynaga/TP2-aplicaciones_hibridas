@@ -174,12 +174,14 @@ const login = async (req, res)=>{
             if(validPassword){
                 const data = {
                     userID: user._id,
-                    username: user.name 
+                    username: user.name
                 };
     
-                const token = jwt.sign(data, secretKey, {expiresIn: '1h'});
-    
-                res.status(200).json({msg: `Bienvenido ${user.name}`, data:{ data } });
+                const token = jwt.sign(data, secretKey, {expiresIn: '30s'});
+
+
+                
+                res.status(200).json({msg: `Bienvenido ${user.name}`, data:{ data, token } });
                 
             }else{
                 res.status(401).json({msg: "El password es incorrecto", data: {}});

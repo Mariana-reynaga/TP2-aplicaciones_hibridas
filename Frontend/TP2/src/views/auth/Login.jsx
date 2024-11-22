@@ -1,6 +1,9 @@
 import { useState, useEffect} from 'react';
 
+import { useNavigate } from 'react-router-dom';
+
 function Login(){
+    const navigate = useNavigate();
     const [user, setUser] = useState({email:'', password:''});
     
     const handleInput = (e) =>{
@@ -24,19 +27,24 @@ function Login(){
                 body: JSON.stringify(user)
             }
 
+            console.log(config);
+
             const res = await fetch(endpoint, config);
 
             if ( !res.ok ) {
                 alert('Uno de los datos es incorrecto');
                 console.log("hubo un error", res);
-                
-            }else{
-                const data = await res.json();
-                console.log("bienvenido ",data);
-                setUser({email:'', password:''});
+                return
             }
 
+            const data = await res.json();
+            console.log("bienvenido ",data);
+            sessionStorage.setItem("token", data.data.token);
+            setUser({email:'', password:''});
 
+            navigate(`/`, { replace: true });
+            location.reload();
+        
         } catch (error) {
             alert('error del servidor', error);
         }
@@ -46,6 +54,8 @@ function Login(){
     return(
         <div className="mt-24 flex justify-center">
             <div className="w-4/5 flex justify-center">
+                
+
                 <div className="bg-secondary p-6 rounded-lg w-1/3 mt-10">
                     <h1 className='text-black text-2xl font-bold mb-5'>Inicia sesión</h1>
 

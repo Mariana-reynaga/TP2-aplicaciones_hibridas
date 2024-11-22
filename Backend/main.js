@@ -18,7 +18,7 @@ const routerAPI = require('./routes');
 const db = require('./config/database');
 
 app.use( (req, res, next)=>{
-    log(chalk.bgBlackBright('Middleware funciona correctamente.'));
+    // log(chalk.bgBlackBright('Middleware funciona correctamente.'));
     next();
 });
 
